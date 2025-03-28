@@ -7,10 +7,10 @@ import SunsetPage from './views/SunsetPage.vue'
 const { locale } = useI18n()
 const currentRoute = ref('sunrise')
 
-const languages = [
-  { code: 'zh', name: '中文' },
-  { code: 'en', name: 'English' }
-]
+// 语言切换处理
+const toggleLanguage = (value) => {
+  locale.value = value ? 'en' : 'zh'
+}
 </script>
 
 <template>
@@ -31,30 +31,20 @@ const languages = [
         
         <v-spacer />
 
-        <!-- 语言切换菜单 -->
-        <v-menu>
-          <template v-slot:activator="{ props }">
-            <v-btn
-              v-bind="props"
-              variant="text"
-              class="text-white"
-            >
-              {{ languages.find(lang => lang.code === locale)?.name }}
-              <v-icon right>mdi-chevron-down</v-icon>
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item
-              v-for="lang in languages"
-              :key="lang.code"
-              :value="lang.code"
-              @click="locale = lang.code"
-            >
-              <v-list-item-title>{{ lang.name }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <!-- 语言切换开关 -->
+        <div class="d-flex align-center">
+          <span class="text-white mr-2">中</span>
+          <v-switch
+            v-model="locale"
+            :true-value="'en'"
+            :false-value="'zh'"
+            hide-details
+            inset
+            density="compact"
+            color="white"
+          ></v-switch>
+          <span class="text-white ml-2">En</span>
+        </div>
       </v-container>
     </v-app-bar>
 
@@ -80,5 +70,18 @@ const languages = [
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.v-switch {
+  margin-top: 0;
+}
+
+/* 自定义开关样式 */
+:deep(.v-switch__track) {
+  opacity: 0.5;
+}
+
+:deep(.v-switch__thumb) {
+  color: white;
 }
 </style>

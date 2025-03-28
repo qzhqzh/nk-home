@@ -1,29 +1,38 @@
 <template>
-  <v-container fluid class="pa-0">
-    <!-- 第一部分：宣传大图和基本介绍 -->
-    <v-row class="hero-section" no-gutters>
-      <v-col cols="12">
-        <v-img
-          src="/images/hero-background.jpg"
-          height="600"
-          cover
-          class="d-flex align-center"
-        >
+  <div class="sunrise-page">
+    <!-- 第一部分：全宽背景图和介绍 -->
+    <div class="hero-section">
+      <v-img
+        src="/images/hero-wide.jpg" 
+        :aspect-ratio="16/6"
+        cover
+        class="hero-image"
+      >
+       <!-- 需要替换为实际的图片路径 -->
+        <div class="hero-overlay">
           <v-container>
-            <v-row justify="center" align="center">
+            <v-row justify="center" align="center" style="height: 100%">
               <v-col cols="12" md="8" class="text-center">
-                <h1 class="text-h2 font-weight-bold white--text mb-4">
+                <h1 class="text-h2 font-weight-bold hero-title mb-6">
                   {{ t('sunrise.hero.title') }}
                 </h1>
-                <p class="text-h5 white--text">
+                <p class="text-h5 hero-subtitle">
                   {{ t('sunrise.hero.subtitle') }}
                 </p>
+                <v-btn
+                  color="primary"
+                  size="x-large"
+                  class="mt-6"
+                  elevation="2"
+                >
+                  {{ t('sunrise.hero.button') }}
+                </v-btn>
               </v-col>
             </v-row>
           </v-container>
-        </v-img>
-      </v-col>
-    </v-row>
+        </div>
+      </v-img>
+    </div>
 
     <!-- 第二部分：价格方案 -->
     <v-container class="my-15">
@@ -128,7 +137,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </v-container>
+  </div>
 </template>
 
 <script setup>
@@ -144,8 +153,42 @@ const navigateToDatabase = () => {
 </script>
 
 <style scoped>
+.sunrise-page {
+  overflow-x: hidden;
+}
+
 .hero-section {
   position: relative;
+  width: 100%;
+  margin-top: -64px; /* 抵消 app-bar 的高度 */
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.3)
+  );
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .philosophy-section {

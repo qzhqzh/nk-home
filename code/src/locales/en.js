@@ -2,7 +2,8 @@ const en = {
   sunrise: {
     hero: {
       title: 'Welcome to Sunrise',
-      subtitle: 'Focused on Providing High-Quality Development Solutions'
+      subtitle: 'Focused on Providing High-Quality Development Solutions',
+      button: 'Learn More'
     },
     pricing: {
       title: 'Choose Your Plan',

@@ -2,7 +2,8 @@ const zh = {
   sunrise: {
     hero: {
       title: '欢迎来到 Sunrise',
-      subtitle: '专注于提供高质量的开发解决方案'
+      subtitle: '专注于提供高质量的开发解决方案',
+      button: '了解更多'
     },
     pricing: {
       title: '选择适合您的方案',
