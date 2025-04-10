@@ -52,6 +52,19 @@ const en = {
         title: 'User First',
         desc: 'User-centric approach for the best experience'
       }
+    },
+    calculator: {
+      title: 'Project Cost Calculator',
+      includeSetup: 'Include Project Setup & Architecture (¥5,000)',
+      weeks: 'Development Weeks',
+      includeMaintenance: 'Include Maintenance',
+      maintenanceYears: 'Maintenance Period',
+      result: 'Estimated Project Cost',
+      description: 'Base development cost is ¥5,000 per week. First year maintenance adds 30%, years 2-3 add 20%, years 4-5 add 40%. Lifetime maintenance doubles the total cost.',
+      setupCost: 'Setup Cost (¥)',
+      optionalServices: 'Optional Services',
+      basicSettings: 'Core Development Period',
+      basicSettingsDesc: 'Evaluate the core development period (based on feature points and complexity, excluding fine-tuning, optimization, and bug fixes)'
     }
   }
 }

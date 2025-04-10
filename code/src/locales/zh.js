@@ -52,6 +52,19 @@ const zh = {
         title: '用户至上',
         desc: '以用户需求为中心，提供最佳体验'
       }
+    },
+    calculator: {
+      title: '项目成本计算器',
+      includeSetup: '包含立项与架构（¥5,000）',
+      weeks: '开发周期（周）',
+      includeMaintenance: '包含维护服务',
+      maintenanceYears: '维护年限',
+      result: '预计项目成本',
+      description: '基础开发成本为每周¥5,000。首年维护增加30%，第2-3年增加20%，第4-5年增加40%。终身维护将使总成本翻倍。',
+      setupCost: '立项与架构费用（¥）',
+      optionalServices: '可选服务',
+      basicSettings: '核心开发周期',
+      basicSettingsDesc: '评估核心开发周期（根据功能点数量、复杂程度相关，不包括微调、优化、修复）'
     }
   }
 }

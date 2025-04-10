@@ -137,15 +137,137 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- 第四部分：价格计算器 -->
+    <v-container class="my-15">
+      <h2 class="text-h4 text-center mb-10">{{ t('sunrise.calculator.title') }}</h2>
+      <v-row justify="center">
+        <v-col cols="12" md="8">
+          <v-card class="pa-6" elevation="2">
+            <!-- 基础设置 -->
+            <div class="mb-6">
+              <h3 class="text-h6 mb-4">{{ t('sunrise.calculator.basicSettings') }}</h3>
+              <p class="text-body-2 text-medium-emphasis mb-4">{{ t('sunrise.calculator.basicSettingsDesc') }}</p>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    v-model="developmentWeeks"
+                    type="number"
+                    :label="t('sunrise.calculator.weeks')"
+                    min="1"
+                    step="1"
+                    variant="outlined"
+                    :rules="[v => !!v || 'Required']"
+                    required
+                    density="compact"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </div>
+
+            <!-- 可选服务 -->
+            <div class="mb-6">
+              <h3 class="text-h6 mb-4">{{ t('sunrise.calculator.optionalServices') }}</h3>
+              <v-row>
+                <!-- 立项与架构 -->
+                <v-col cols="12" md="6">
+                  <v-checkbox
+                    v-model="includeSetup"
+                    :label="t('sunrise.calculator.includeSetup')"
+                    color="primary"
+                    density="compact"
+                  ></v-checkbox>
+                  <v-text-field
+                    v-if="includeSetup"
+                    v-model="setupCost"
+                    type="number"
+                    :label="t('sunrise.calculator.setupCost')"
+                    min="0"
+                    step="1000"
+                    variant="outlined"
+                    density="compact"
+                    class="mt-2"
+                  ></v-text-field>
+                </v-col>
+                <!-- 维护服务 -->
+                <v-col cols="12" md="6">
+                  <v-checkbox
+                    v-model="includeMaintenance"
+                    :label="t('sunrise.calculator.includeMaintenance')"
+                    color="primary"
+                    density="compact"
+                  ></v-checkbox>
+                  <v-select
+                    v-if="includeMaintenance"
+                    v-model="maintenanceYears"
+                    :items="maintenanceOptions"
+                    :label="t('sunrise.calculator.maintenanceYears')"
+                    variant="outlined"
+                    density="compact"
+                    class="mt-2"
+                  ></v-select>
+                </v-col>
+              </v-row>
+            </div>
+
+            <!-- 计算结果 -->
+            <v-divider class="my-4"></v-divider>
+            <div class="text-center">
+              <h3 class="text-h5 mb-4">{{ t('sunrise.calculator.result') }}</h3>
+              <div class="text-h4 primary--text font-weight-bold">
+                ¥{{ calculatedPrice.toLocaleString() }}
+              </div>
+              <p class="text-body-2 mt-4 text-medium-emphasis">
+                {{ t('sunrise.calculator.description') }}
+              </p>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { ref, computed } from 'vue'
 
 const { t } = useI18n()
 
 const emit = defineEmits(['update:currentRoute'])
+
+const developmentWeeks = ref(1)
+const includeSetup = ref(true)
+const setupCost = ref(5000)
+const includeMaintenance = ref(true)
+const maintenanceYears = ref('1')
+
+const maintenanceOptions = [
+  { title: '1年', value: '1' },
+  { title: '3年', value: '3' },
+  { title: '5年', value: '5' },
+  { title: '终身', value: 'lifetime' }
+]
+
+const calculatedPrice = computed(() => {
+  let basePrice = 0
+  if (includeSetup.value) {
+    basePrice += Number(setupCost.value) // 立项与架构
+  }
+  basePrice += 5000 * developmentWeeks.value // 开发成本
+
+  if (includeMaintenance.value) {
+    const maintenanceMultiplier = {
+      '1': 1.3,    // 首年30%
+      '3': 1.5,    // 首年30% + 2年10%
+      '5': 1.9,    // 首年30% + 2年20% + 2年40%
+      'lifetime': 2 // 首年30% + 终身维护
+    }
+    basePrice *= maintenanceMultiplier[maintenanceYears.value]
+  }
+
+  return basePrice
+})
 
 const navigateToDatabase = () => {
   emit('update:currentRoute', 'database')
