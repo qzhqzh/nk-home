@@ -36,77 +36,80 @@
 
     <!-- 第二部分：价格方案 -->
     <v-container class="my-15">
-      <h2 class="text-h4 text-center mb-10">{{ t('sunrise.pricing.title') }}</h2>
+      <v-row class="mt-8">
+        <v-col cols="12" class="text-center">
+          <h2 class="text-h4 mb-4">{{ t('sunrise.pricing.title') }}</h2>
+          <p class="text-body-1 mb-8">{{ t('sunrise.pricing.subtitle') }}</p>
+        </v-col>
+      </v-row>
+
       <v-row>
-        <!-- 基础方案 -->
+        <!-- 网站搭建服务 -->
         <v-col cols="12" md="4">
           <v-card class="mx-auto" elevation="2">
             <v-card-title class="text-center text-h5 pt-6">
-              {{ t('sunrise.pricing.basic.name') }}
+              <v-icon size="large" color="primary" class="mb-2">mdi-web</v-icon>
+              <div>{{ t('sunrise.pricing.website.name') }}</div>
             </v-card-title>
             <v-card-text class="text-center">
-              <div class="text-h4 mb-4">{{ t('sunrise.pricing.basic.price') }}</div>
               <v-list density="compact">
-                <template v-for="(_, index) in 3" :key="index">
-                  <v-list-item>
-                    <v-list-item-title>
-                      {{ t(`sunrise.pricing.basic.features.${index}`) }}
-                    </v-list-item-title>
-                  </v-list-item>
-                </template>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.website.features.0') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.website.features.1') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.website.features.2') }}</v-list-item-title>
+                </v-list-item>
               </v-list>
             </v-card-text>
-            <v-card-actions class="justify-center pb-6">
-              <v-btn color="primary">{{ t('sunrise.pricing.basic.button') }}</v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
 
-        <!-- 进阶方案 -->
+        <!-- 数据分析服务 -->
         <v-col cols="12" md="4">
           <v-card class="mx-auto" elevation="4" color="primary">
             <v-card-title class="text-center text-h5 pt-6 white--text">
-              {{ t('sunrise.pricing.pro.name') }}
+              <v-icon size="large" class="mb-2 white--text">mdi-chart-bar</v-icon>
+              <div>{{ t('sunrise.pricing.data.name') }}</div>
             </v-card-title>
             <v-card-text class="text-center">
-              <div class="text-h4 mb-4 white--text">{{ t('sunrise.pricing.pro.price') }}</div>
               <v-list>
-                <template v-for="(_, index) in 3" :key="index">
-                  <v-list-item>
-                    <v-list-item-title>
-                      {{ t(`sunrise.pricing.pro.features.${index}`) }}
-                    </v-list-item-title>
-                  </v-list-item>
-                </template>
+                <v-list-item>
+                  <v-list-item-title class="white--text">{{ t('sunrise.pricing.data.features.0') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="white--text">{{ t('sunrise.pricing.data.features.1') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="white--text">{{ t('sunrise.pricing.data.features.2') }}</v-list-item-title>
+                </v-list-item>
               </v-list>
             </v-card-text>
-            <v-card-actions class="justify-center pb-6">
-              <v-btn color="white" variant="elevated">{{ t('sunrise.pricing.pro.button') }}</v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
 
-        <!-- 专业方案 -->
+        <!-- 科技写作服务 -->
         <v-col cols="12" md="4">
           <v-card class="mx-auto" elevation="2">
             <v-card-title class="text-center text-h5 pt-6">
-              {{ t('sunrise.pricing.premium.name') }}
+              <v-icon size="large" color="primary" class="mb-2">mdi-pencil</v-icon>
+              <div>{{ t('sunrise.pricing.writing.name') }}</div>
             </v-card-title>
             <v-card-text class="text-center">
-              <div class="text-h4 mb-4">{{ t('sunrise.pricing.premium.price') }}</div>
               <v-list density="compact">
-                <template v-for="(_, index) in 3" :key="index">
-                  <v-list-item>
-                    <v-list-item-title>
-                      {{ t(`sunrise.pricing.premium.features.${index}`) }}
-                    </v-list-item-title>
-                  </v-list-item>
-                </template>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.writing.features.0') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.writing.features.1') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>{{ t('sunrise.pricing.writing.features.2') }}</v-list-item-title>
+                </v-list-item>
               </v-list>
             </v-card-text>
-            <v-card-actions class="justify-center pb-6">
-              <v-btn color="primary">{{ t('sunrise.pricing.premium.button') }}</v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -147,7 +150,6 @@
             <!-- 基础设置 -->
             <div class="mb-6">
               <h3 class="text-h6 mb-4">{{ t('sunrise.calculator.basicSettings') }}</h3>
-              <p class="text-body-2 text-medium-emphasis mb-4">{{ t('sunrise.calculator.basicSettingsDesc') }}</p>
               <v-row>
                 <v-col cols="12">
                   <v-text-field
@@ -241,6 +243,8 @@ const includeSetup = ref(true)
 const setupCost = ref(5000)
 const includeMaintenance = ref(true)
 const maintenanceYears = ref('1')
+const weeklyRate = ref(5000) // 默认周价格
+const calculatorRate = ref(5000) // 计算器使用的周价格
 
 const maintenanceOptions = [
   { title: '1年', value: '1' },
@@ -250,16 +254,18 @@ const maintenanceOptions = [
 ]
 
 const calculatedPrice = computed(() => {
-  let basePrice = 0
+  let basePrice = calculatorRate.value * developmentWeeks.value
+
   if (includeSetup.value) {
-    basePrice += Number(setupCost.value) // 立项与架构
+    basePrice += Number(setupCost.value)
   }
-  basePrice += 5000 * developmentWeeks.value // 开发成本
 
   if (includeMaintenance.value) {
     const maintenanceMultiplier = {
       '1': 1.3,    // 首年30%
-      '3': 1.5,    // 首年30% + 2年10%
+      '2': 1.5,    // 首年30% + 1年20%
+      '3': 1.7,    // 首年30% + 2年20%
+      '4': 1.9,    // 首年30% + 2年20% + 1年40%
       '5': 1.9,    // 首年30% + 2年20% + 2年40%
       'lifetime': 2 // 首年30% + 终身维护
     }
@@ -268,6 +274,10 @@ const calculatedPrice = computed(() => {
 
   return basePrice
 })
+
+const setWeeklyRate = (rate) => {
+  weeklyRate.value = rate
+}
 
 const navigateToDatabase = () => {
   emit('update:currentRoute', 'database')
@@ -282,11 +292,13 @@ const navigateToDatabase = () => {
 .hero-section {
   position: relative;
   width: 100%;
-  margin-top: -64px; /* 抵消 app-bar 的高度 */
+  margin-top: -16px;
+  transform: translateY(-16px);
 }
 
 .hero-image {
   width: 100%;
+  margin-top: -16px;
 }
 
 .hero-overlay {
@@ -319,5 +331,15 @@ const navigateToDatabase = () => {
 
 .v-card-text {
   line-height: 1.6;
+}
+
+.v-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.v-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
 }
 </style> 

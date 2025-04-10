@@ -6,7 +6,8 @@ const zh = {
       button: '了解更多'
     },
     pricing: {
-      title: '选择适合您的方案',
+      title: '我们的服务',
+      subtitle: '专业解决方案，满足您的需求',
       basic: {
         name: '基础版',
         price: '￥99/月',
@@ -36,21 +37,45 @@ const zh = {
           '定制化解决方案'
         ],
         button: '选择方案'
+      },
+      website: {
+        name: '网站搭建服务',
+        features: [
+          '定制化网站设计与开发',
+          '响应式与移动端适配',
+          'SEO优化与性能调优'
+        ]
+      },
+      data: {
+        name: '数据分析服务',
+        features: [
+          '数据采集与处理',
+          '统计分析可视化',
+          '机器学习模型开发'
+        ]
+      },
+      writing: {
+        name: '科技写作服务',
+        features: [
+          '技术文档与手册编写',
+          '研究论文与文章撰写',
+          '技术博客内容创作'
+        ]
       }
     },
     philosophy: {
-      title: '我们的开发理念',
+      title: '开发理念',
       innovation: {
-        title: '创新思维',
-        desc: '持续探索新技术，追求创新解决方案'
+        title: '创新',
+        desc: '拥抱前沿技术，创造创新解决方案，推动进步。'
       },
       quality: {
-        title: '品质保证',
-        desc: '严格的代码审查，确保产品质量'
+        title: '品质',
+        desc: '通过严格的标准和注重细节，提供卓越品质。'
       },
       userFirst: {
         title: '用户至上',
-        desc: '以用户需求为中心，提供最佳体验'
+        desc: '创建优先考虑用户体验和满意度的解决方案。'
       }
     },
     calculator: {
@@ -65,6 +90,10 @@ const zh = {
       optionalServices: '可选服务',
       basicSettings: '核心开发周期',
       basicSettingsDesc: '评估核心开发周期（根据功能点数量、复杂程度相关，不包括微调、优化、修复）'
+    },
+    footer: {
+      // copyright: '© 2025 武汉暖空科技有限公司 版权所有'
+      copyright: '© 2025 Wuhan NuanKong Technology Co., Ltd. All rights reserved.'
     }
   }
 }

@@ -6,10 +6,11 @@ const en = {
       button: 'Learn More'
     },
     pricing: {
-      title: 'Choose Your Plan',
+      title: 'Our Services',
+      subtitle: 'Professional solutions tailored to your needs',
       basic: {
         name: 'Basic',
-        price: '$99/month',
+        price: '¥{price}/week',
         features: [
           'Basic Features',
           'Standard Response Time',
@@ -19,7 +20,7 @@ const en = {
       },
       pro: {
         name: 'Professional',
-        price: '$299/month',
+        price: '¥{price}/week',
         features: [
           'All Basic Features',
           'Priority Response',
@@ -29,28 +30,52 @@ const en = {
       },
       premium: {
         name: 'Premium',
-        price: '$599/month',
+        price: '¥{price}/week',
         features: [
           'All Advanced Features',
           '24/7 Dedicated Support',
           'Customized Solutions'
         ],
         button: 'Select Plan'
+      },
+      website: {
+        name: 'Website Development',
+        features: [
+          'Custom website design and development',
+          'Responsive and mobile-friendly',
+          'SEO optimization and performance tuning'
+        ]
+      },
+      data: {
+        name: 'Data Analysis',
+        features: [
+          'Data collection and processing',
+          'Statistical analysis and visualization',
+          'Machine learning model development'
+        ]
+      },
+      writing: {
+        name: 'Technical Writing',
+        features: [
+          'Technical documentation and manuals',
+          'Research papers and articles',
+          'Technical blog content'
+        ]
       }
     },
     philosophy: {
-      title: 'Our Philosophy',
+      title: 'Development Philosophy',
       innovation: {
         title: 'Innovation',
-        desc: 'Continuously exploring new technologies for innovative solutions'
+        desc: 'Embracing cutting-edge technologies and creative solutions to drive progress.'
       },
       quality: {
-        title: 'Quality Assurance',
-        desc: 'Rigorous code review ensuring product quality'
+        title: 'Quality',
+        desc: 'Delivering excellence through rigorous standards and attention to detail.'
       },
       userFirst: {
         title: 'User First',
-        desc: 'User-centric approach for the best experience'
+        desc: 'Creating solutions that prioritize user experience and satisfaction.'
       }
     },
     calculator: {
@@ -65,6 +90,9 @@ const en = {
       optionalServices: 'Optional Services',
       basicSettings: 'Core Development Period',
       basicSettingsDesc: 'Evaluate the core development period (based on feature points and complexity, excluding fine-tuning, optimization, and bug fixes)'
+    },
+    footer: {
+      copyright: '© 2025 Wuhan NuanKong Technology Co., Ltd. All rights reserved.'
     }
   }
 }
