@@ -227,6 +227,17 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- 页脚 -->
+    <v-footer class="mt-15">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="12" class="text-center">
+            <p class="text-body-2">© 2025 Wuhan NuanKong Technology Co., Ltd. All rights reserved.</p>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
   </div>
 </template>
 
